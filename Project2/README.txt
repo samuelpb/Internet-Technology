@@ -16,8 +16,6 @@ In Part 2, I slightly reorganized my code (cited sections of code)
 	instead of a seperate file for packets, I used the cited functions from the answer key, createPackets and create_data_packets to deal with my packet headers wihtin the same file
 	(this also slightly changed my send function slightly to look more similar to the answer key)
 
-*Note* : I still used three threads, one to time the ack for each packet sent, one to receive acks, and one to send data. This was my way of thinking from part 1. I noticed in the answer key, when it receives a packet out of order, rather than retransmitting the last in order ACK, it ignores it. This allows a timeout from the latet acked, instead of indivually timing ACKs.
-
 
 Functions added for Part 2:
 	create_data_packets
@@ -31,5 +29,3 @@ Functions added for Part 2:
 	recv_close : waits to receive a signal to close the connection
 		These two are threads, and since they are only called after all data has been sent and acked,
 			they will time out after 5 seconds and the side will close.
-
-heyyyyy
